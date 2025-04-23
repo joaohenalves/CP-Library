@@ -7,7 +7,7 @@ void dijkstra(int s) {
     parent[s] = -1;
     pq.emplace(0, s);
     while(!pq.empty()) {
-        auto [u, du] = pq.top();
+        auto [du, u] = pq.top();
         pq.pop();
         if(du > dist[u]) continue;
         for(auto &[v, dv] : graph[u]) {
