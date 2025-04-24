@@ -21,9 +21,9 @@ void recover(int u, int v) {
     path[sz++] = u;
 }
 
-void setEdge(int u, int v) {
-    graph[u][v] = 1;
-    graph[v][u] = 1;
+void setEdge(int u, int v, int w) {
+    graph[u][v] = w;
+    graph[v][u] = w;
     parent[u][v] = u;
     parent[v][u] = v;
 }
