@@ -1,4 +1,5 @@
 // retorno 1 significa ciclo de peso negativo
+// Modificar graph para vector<vector<pii>> graph(MAX);
 
 int dist[MAX];
 
