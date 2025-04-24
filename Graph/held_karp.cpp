@@ -2,6 +2,7 @@
 
 // atenção, o vértice de origem aqui é o 0! fortes ajustes devem ser feitos
 // caso a origem desejada seja outro vértice
+// mas pode-se sempre "trocar" o identificador do vértice de origem desejado com o 0, fica mais fácil (gambiarra)
 
 int graph[MAX_V][MAX_V], dp[1 << MAX_V][MAX_V];
 
