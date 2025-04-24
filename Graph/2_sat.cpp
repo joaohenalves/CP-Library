@@ -1,4 +1,5 @@
 // Resolvedor de 2-SAT, retorno 1 = há solução, 0 = não há
+// Resposta para o valor lógico de cada variável estará em ans
 
 #define pos(x) (2 * (x))
 #define neg(x) (2 * (x) + 1)
