@@ -27,3 +27,9 @@ void setEdge(int u, int v, int w) {
     parent[u][v] = u;
     parent[v][u] = v;
 }
+
+void preprocess() {
+    for(int i = 0; i < n; i++) {
+        parent[i][i] = i;
+    }
+}
