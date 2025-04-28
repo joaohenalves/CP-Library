@@ -1,4 +1,8 @@
+// MACRO PARA O ALFABETO TODO, a-z  E A-Z
 #define to_i(ch) ((ch) >= 'a' ? (ch) - 'a' + 26 : (ch) - 'A')
+
+//MACRO PARA SOMENTE LETRAS MINUSCULAS (OU MAIUSCULAS, SÓ MUDAR O a PARA A)
+#define to_i(ch) ((ch) - 'a')
 
 struct node {
     int nxt[52], term = 0, occ = 0, l = 0;
