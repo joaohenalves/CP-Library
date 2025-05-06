@@ -17,7 +17,7 @@ void sieve() {
     }
 }
 
-vector<pii>> factorize(ll x) {
+vector<pii> factorize(ll x) {
     vector<pii> ans;
     for(int i = 0; i < pi; i++) {
         if(x % primes[i] == 0) {
