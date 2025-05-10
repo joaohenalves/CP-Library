@@ -1,3 +1,5 @@
+// cuidado com 0 e 1 no factorize, 0 vai rodar pra sempre, 1 pode ser confundido com primo
+
 int pi;
 ll primes[MAX];
 bool isPrime[MAX];
