@@ -1,7 +1,7 @@
 // dado um alfabeto A e um tamanho n, constrói uma string tal que 
 // todas as strings possíveis de tamanho n com o alfabeto A
 // aparecem exatamente uma vez como substring da string de saída
-// Complexidade: O(2^n)
+// Complexidade: O(k^n)
  
 unordered_set<string> seen;
 vector<int> edges;
