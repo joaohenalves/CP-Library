@@ -1,6 +1,13 @@
 // Resolvedor de 2-SAT, retorno 1 = há solução, 0 = não há
 // Resposta para o valor lógico de cada variável estará em ans
 
+// A XOR B = (A ^ B) = (A | B) & (-A | -B) // colocar as 4 arestas para as duas disjunções
+// Uma cláusula A XOR B significa uma obrigatoriedade de A e B serem diferentes
+
+// A <-> B = (-A ^ B)
+// A <-> B = (A -> B) & (-A -> -B)
+// Uma cláusula A <-> B (A se e somente se B) significa uma obrigatoriedade de A e B serem iguais
+
 #define pos(x) (2 * (x))
 #define neg(x) (2 * (x) + 1)
  
