@@ -12,6 +12,7 @@ void bfs(int s) {
         for(int &v : graph[u]) {
             if(dist[v] == INF) {
                 dist[v] = dist[u] + 1;
+                parent[v] = u;
                 q.push(v);
             }
         }
