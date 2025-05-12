@@ -4,7 +4,7 @@
 // query em O(sqrt(n)), update em O(1)
 // caso haja um fator log envolvido na resposta das queries, o BSIZE ótimo é sqrt(n / log(n))
 
-#define BSIZE 450
+const int BSIZE = 450;
 ll block[BSIZE];
 
 void preprocess() {
