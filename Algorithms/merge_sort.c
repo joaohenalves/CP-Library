@@ -1,6 +1,3 @@
-// não esquecer de converter o malloc para ponteiro de int (*int)
-// se for usar esse algoritmo no c++
-
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -11,7 +8,7 @@ int n, arr[MAX];
 ll inv;
 
 void merge(int start, int mid, int end) {
-    int *aux = malloc((end - start + 1) * sizeof(int));
+    int *aux = (int*) malloc((end - start + 1) * sizeof(int));
     int i = start, j = mid + 1, k = 0;
     while(i <= mid && j <= end) {
         if(arr[i] <= arr[j]) {
