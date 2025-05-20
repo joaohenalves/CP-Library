@@ -1,3 +1,16 @@
+// fibonacci rápido e fácil
+// retorna {f(n), f(n + 1)}
+
+pll fib(ll n) {
+    if(n == 0) return {0, 1};
+    auto p = fib(n >> 1);
+    ll c = p.first * (2LL * p.second - p.first);
+    ll d = p.first * p.first + p.second * p.second;
+    if(n & 1) return {d, c + d};
+    else return {c, d};
+}
+
+// fibonacci com pisano period
 // necessário utilizar em conjunto com o código de sieve.cpp
 
 int gcd(int a, int b) {
