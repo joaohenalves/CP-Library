@@ -1,4 +1,4 @@
-// Calcula do lowest common ancestor de dois vértices com binary lifting
+// Calcula o lowest common ancestor de dois vértices com binary lifting
 // dfs deve ser chamada com dfs(raiz, raiz, 0)
 
 int depth[MAX], up[MAX][LOG];
