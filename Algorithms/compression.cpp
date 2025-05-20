@@ -16,6 +16,7 @@ void compress() {
 }
 
 // Ou outra alternativa:
+// preferir essa, é mais cache-friendly
 void compress() {
     vector<int> aux(arr, arr + n);
     sort(aux.begin(), aux.end());
