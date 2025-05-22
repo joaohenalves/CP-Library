@@ -1,4 +1,4 @@
-//Problema muito difícil:
+// Problema muito difícil: https://atcoder.jp/contests/abc384/tasks/abc384_g
 // dados dois arrays x e y de tamanho n e dadas k queres do tipo i, j, processar
 // somatorio(1 até i, somatorio(1 até j, abs(x[i] - y[j])))
 // números indo de 1 até 10^8, utilizado compressão de índices para ajudar
