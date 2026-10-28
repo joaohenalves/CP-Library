@@ -27,4 +27,4 @@ It also serves as a collection of reusable implementations for solving algorithm
 
 ## ⚙️ Usage
 
-All implementations are designed to work with the **C++ template provided in this repository**.
+All implementations are designed to work with the **C++ template provided in this repository**. These implementations follow a personal coding style developed over years of practice, often relying on conventions and implicit assumptions that may not be immediately clear to others. As such, this library is primarily intended as a personal reference rather than a general-purpose resource.
