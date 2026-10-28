@@ -3,6 +3,9 @@
 // BSIZE é raiz quadrada de MAX
 // query em O(sqrt(n)), update em O(1)
 // caso haja um fator log envolvido na resposta das queries, o BSIZE ótimo é sqrt(n / log(n))
+// nao se esquecer se precisar processar um bloco inteiro, limitar o indice pelo tamanho utilizado
+// ou seja, o ultimo bloco pode pegar informações de posições fora do tamanho do vetor
+// limitar utilizando um min(n, br * BSIZE ou (bl + 1) * BSIZE), o que fizer mais sentido
 
 const int BSIZE = 450;
 ll block[BSIZE];

@@ -1,21 +1,39 @@
 # === Makefile ===
 
-# 1) rely on whatever g++ is on your PATH
-CXX      := g++
-CXXFLAGS := -std=c++23 -O2 -Wextra
+CXX := g++
+SRC := main.cpp
+OUT := main
 
-# 2) disable built‑in suffix rules
-.SUFFIXES:
+NORMAL_FLAGS := -std=c++23 -O2 -Wall -Wextra \
+                -Wno-unused-variable -Wno-unused-but-set-variable
 
-# 3) default goal: if you run “make” with no args, build main
-all: main
+DEBUG_FLAGS := -std=c++23 -O1 -g3 \
+               -Wall -Wextra -Wshadow \
+               -Wno-unused-variable -Wno-unused-but-set-variable \
+               -fno-omit-frame-pointer \
+               -fmax-errors=1 \
+               -fdiagnostics-color=always
 
-# 4) pattern rule: “make foo” → compiles foo.cpp → foo.exe
-%: %.cpp
-	@echo Building $@ from $< using `where g++`  
-	$(CXX) $(CXXFLAGS) -o $@ $<
+SAN_FLAGS := $(DEBUG_FLAGS) \
+             -fsanitize=address,undefined
 
-# 5) clean up
-.PHONY: clean
+.PHONY: all debug san debuglog clean
+
+all:
+	@echo Building $(OUT) from $(SRC) using `command -v $(CXX)`
+	$(CXX) $(NORMAL_FLAGS) -o $(OUT) $(SRC)
+
+debug:
+	@echo Building $(OUT) in debug mode
+	$(CXX) $(DEBUG_FLAGS) -o $(OUT) $(SRC)
+
+san:
+	@echo Building $(OUT) with sanitizers
+	$(CXX) $(SAN_FLAGS) -o $(OUT) $(SRC)
+
+debuglog:
+	@echo Building $(OUT) in debug mode, writing diagnostics to build_errors.txt
+	$(CXX) $(DEBUG_FLAGS) -fdiagnostics-color=auto -o $(OUT) $(SRC) 2> build_errors.txt
+
 clean:
-	del /Q *.exe    # on *nix use: rm -f *.exe
+	rm -f $(OUT) build_errors.txt

@@ -22,8 +22,15 @@ struct line {
     point p;
     vec dir;
     line() {}
-    line(point _p, vec _dir)   : p(_p), dir(_dir) {}
-    line(point a, point b)   : p(a), dir(a, b) {}
+    line(point _p, vec _dir) : p(_p), dir(_dir) {}
+    line(point a, point b) : p(a), dir(a, b) {}
+};
+
+struct seg {
+    point a, b;
+    vec u;
+    seg() {}
+    seg(point _a, point _b) : a(_a), b(_b), u(_a, _b) {}
 };
 
 //cuidado que o retorno aqui pode ser negativo. isso calcula a area do paralelogramo quando
@@ -33,6 +40,7 @@ int cross(vec u, vec v) {
     return u.x * v.y - u.y * v.x;
 }
 
+//o dot product de um vetor com ele mesmo resulta no quadrado da norma
 int dot(vec u, vec v) {
     return u.x * v.x + u.y * v.y;
 }
@@ -76,6 +84,8 @@ bool intersection(line l, line r, point &res) {
 }
 
 // deg em graus, cuidado se ja estiver em radianos
+// angulo positivo: rotaciona sentido anti-horário
+// angulo negativo: rotaciona sentido horário
 vec rotateVec(vec u, double deg) {
     double t = rad(deg);
     double x = cos(t) * u.x + (-sin(t) * u.y);
@@ -83,7 +93,47 @@ vec rotateVec(vec u, double deg) {
     return vec(x, y);
 }
 
+vec perp(vec u) {
+    return vec(-u.y, u.x);
+}
+
 bool operator<(point a, point b) {
     return a.x < b.x || (a.x == b.x && a.y < b.y);
 }
 
+//Cuidado com reta de tamanho 0, ali na divisão por len
+//nesse caso, é uma distancia entre dois pontos normal
+//Todas as structs e funções envolvidas aqui tem que ser double
+double pointSegDist(seg s, point p) {
+    point cp;
+    vec u = vec(s.a, p);
+    double normSq = dot(s.u, s.u);
+    if(normSq < EPS) return sqrt(dot(vec(p, s.a), vec(p, s.a)));
+    double l = dot(s.u, u) / normSq;
+    if(l < 0.) cp = s.a;
+    else if(l > 1.) cp = s.b;
+    else {
+        cp.x = s.a.x + l * s.u.x;
+        cp.y = s.a.y + l * s.u.y;
+    }
+    return sqrt(dot(vec(cp, p), vec(cp, p)));
+}
+
+//Funciona somente para segmentos não colineares
+bool segIntersect(seg s, seg r) {
+    return cross(s.u, vec(s.a, r.a)) * cross(s.u, vec(s.a, r.b)) < EPS &&
+            cross(r.u, vec(r.a, s.a)) * cross(r.u, vec(r.a, s.b)) < EPS;
+}
+
+bool collinearSeg(seg s, seg r) {
+    return fabs(cross(s.u, vec(s.a, r.a))) < EPS &&
+            fabs(cross(s.u, vec(s.a, r.b))) < EPS;
+}
+
+double segDist(seg s, seg r) {
+    if(!collinearSeg(s, r) && segIntersect(s, r)) return 0.;
+    return min({pointSegDist(r, s.a),
+                pointSegDist(r, s.b),
+                pointSegDist(s, r.a),
+                pointSegDist(s, r.b)});
+}

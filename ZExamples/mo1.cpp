@@ -40,7 +40,6 @@ void compress() {
     }
 }
 
-
 #define left(u) (2 * (u))
 #define right(u) (left(u) + 1)
 

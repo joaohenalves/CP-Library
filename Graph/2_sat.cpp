@@ -33,17 +33,17 @@ void tarjan(int u) {
         counter++;
     }
 }
- 
+
 void initTarjan() {
     ord = 1;
     counter = 0;
-    memset(vis, 0, sizeof(vis));
-    memset(inStack, 0, sizeof(inStack));
+    fill(vis, vis + 2 * n, 0);
+    fill(inStack, inStack + 2 * n, 0);
     for(int u = 0; u < 2 * n; u++) {
         if(vis[u] == 0) tarjan(u);
     }
 }
- 
+
 void setClause(int u, int v, int b1, int b2) {
     int u1, u2, v1, v2;
     u1 = neg(u);

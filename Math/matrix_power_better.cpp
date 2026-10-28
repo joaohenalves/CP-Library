@@ -4,7 +4,7 @@
 vector<vector<ll>> m1(MAXG, vector<ll> (MAXG)), m2(MAXG, vector<ll> (MAXG));
  
 void multmat(vector<vector<ll>> &a, vector<vector<ll>> &b, int ord) {
-    vector<vector<ll>> c(MAXG, vector<ll> (MAXG));
+    vector<vector<ll>> c(ord, vector<ll> (ord));
     for(int i = 0; i < ord; i++) {
         for(int j = 0; j < ord; j++) {
             for(int k = 0; k < ord; k++) {
@@ -23,7 +23,7 @@ void ident(vector<vector<ll>> &a, int ord) {
         }
     }
 }
- 
+
 void expbinmat(int k, int ord) {
     ident(m2, ord);
     while(k) {

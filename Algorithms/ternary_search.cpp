@@ -1,3 +1,5 @@
+// esse exemplo tá pra encontrar o minimo
+
 ll check(ll guess) {
     //Alguma coisa aqui
     return 0;

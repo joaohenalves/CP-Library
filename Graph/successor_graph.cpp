@@ -2,6 +2,10 @@
 //não haverão vértices de fora que levam a um ciclo. isso facilita muito
 //o processamento do grafo
 
+// cyc contém 0 se o vértice não está no ciclo no final do caminho do componente que ele está,
+// e se contém um número diferente de 0, esse vértice está no ciclo e esse número é o tamanho desse ciclo
+
+
 int nxt[MAX], comp[MAX], cyc[MAX], pos[MAX], dist[MAX], vis[MAX], up[MAX][LOG];
 
 void dfs(int u, int c) {

@@ -51,10 +51,10 @@ int main() {
     int flag;
     ll t, d;
     int u, v, q;
-    std::random_device dev;
-    std::mt19937 rng(dev());
-    std::uniform_int_distribution<std::mt19937::result_type> num1(1,1000000000);
-    std::uniform_int_distribution<std::mt19937::result_type> vn1(1,100000);
+    random_device dev;
+    mt19937 rng(dev());
+    uniform_int_distribution<mt19937::result_type> num1(1,1000000000);
+    uniform_int_distribution<mt19937::result_type> vn1(1,100000);
     cout << 4 << '\n';
     for(int cases = 0; cases < 4; cases++) {
         memset(nodeRank, 0, sizeof(nodeRank));
@@ -67,7 +67,7 @@ int main() {
         for(int i = 0; i < n; i++) {
             cout << num1(rng) << (i == n - 1 ? '\n' : ' ');
         }
-        std::uniform_int_distribution<std::mt19937::result_type> vert1(1,n);
+        uniform_int_distribution<mt19937::result_type> vert1(1,n);
         for(int i = 0; i < 100000000; i++) {
             u = vert1(rng);
             v = vert1(rng);
@@ -89,7 +89,7 @@ int main() {
         if(m != n) cout << "Not a tree!\n";
         for(int i = 0; i < q; i++) {
             int u = vert1(rng);
-            std::uniform_int_distribution<std::mt19937::result_type> dist4(1,tsize[u]);
+            uniform_int_distribution<mt19937::result_type> dist4(1,tsize[u]);
             cout << u << ' ' << dist4(rng) << '\n';
         }
         for(int i = 0; i < MAX; i++) graph[i].clear();

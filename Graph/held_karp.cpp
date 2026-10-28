@@ -2,6 +2,8 @@
 
 // atenção, o vértice de origem aqui é o 0! fortes ajustes devem ser feitos
 // caso a origem desejada seja outro vértice
+// (2026) a info acima eh bem questionavel, pq o ciclo sempre vai ter o mesmo custo
+// nao importa o vertice de inicio
 
 int graph[MAX_V][MAX_V], dp[1 << MAX_V][MAX_V];
 

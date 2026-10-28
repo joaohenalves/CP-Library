@@ -1,6 +1,5 @@
 // Exponenciação de matrizes binárias, onde os valores são somente 0 ou 1
-// Utiliza o "método dos quatro russos" para otimizar a parte de multiplicação, altamente eficiente
-// Bruxaria total, não tem como entender
+// Utiliza o "método dos quatro russos" para otimizar a parte de multiplicação
 
 // Valores iniciais e resultado ficam em 'a'
 

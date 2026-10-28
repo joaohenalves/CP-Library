@@ -19,9 +19,9 @@ int build_st(int u, int l, int r) {
     if(l == r) return st[u] = arr[l];
     return st[u] = build_st(left(u), l, m) + build_st(right(u, m, l), m + 1, r);
 }
- 
+
 int query_st(int u, int l, int r, int i, int j) {
-    if(lazy[u] < 0) update_lazy(u, l, r, lazy[u]);
+    if(lazy[u] != 0) update_lazy(u, l, r, lazy[u]);
     if(r < i || l > j) return 0;
     if(i <= l && r <= j) return st[u];
     int m = (l + r) / 2;
@@ -29,7 +29,7 @@ int query_st(int u, int l, int r, int i, int j) {
 }
 
 int update_range(int u, int l, int r, int i, int j, int val) {
-    if(lazy[u] < 0) update_lazy(u, l, r, lazy[u]);
+    if(lazy[u] != 0) update_lazy(u, l, r, lazy[u]);
     if(r < i || l > j) return st[u];
     if(i <= l && r <= j) {
         update_lazy(u, l, r, val);

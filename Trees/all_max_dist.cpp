@@ -12,6 +12,8 @@ void dfs(int u, int p, int d) {
 
 void compute() {
     dfs(0, -1, 0);
+    mx = 0;
     dfs(m, -1, 0);
+    mx = 0;
     dfs(m, -1, 0);
 }

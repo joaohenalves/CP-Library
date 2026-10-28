@@ -1,0 +1,11 @@
+*.exe
+*.txt
+/Main/check.cpp
+/Main/correct.cpp
+/Main/Main.java
+/Main/main.py
+/Main/temp.cpp
+/Main/test.cpp
+Zattempts/
+Zexamples/
+

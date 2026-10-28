@@ -5,7 +5,7 @@ void tarjan(int u) {
     vis[u] = cycle[u] = ord++;
     stk.push(u);
     inStack[u] = 1;
-    for(int &v : graph[u]) {
+    for(int v : graph[u]) {
         if(vis[v] == 0) tarjan(v);
         if(inStack[v]) cycle[u] = min(cycle[u], cycle[v]);
     }
@@ -24,8 +24,8 @@ void tarjan(int u) {
 void initTarjan() {
     ord = 1;
     counter = 0;
-    memset(vis, 0, sizeof(vis));
-    memset(inStack, 0, sizeof(inStack));
+    fill(vis, vis + n, 0);
+    fill(inStack, inStack + n, 0);
     for(int u = 0; u < n; u++) {
         if(vis[u] == 0) tarjan(u);
     }

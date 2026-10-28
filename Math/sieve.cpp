@@ -48,7 +48,7 @@ void numDivisors() {
 
 //Crivo soma dos divisores (n log n)
 //Cuidado com overflow
-void numDivisors() {
+void sumDivisors() {
     for(int i = 1; i < MAX; i++) {
         for(int j = i; j < MAX; j += i) {
             vet[j] += i;

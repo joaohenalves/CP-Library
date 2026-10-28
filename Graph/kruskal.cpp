@@ -22,7 +22,7 @@ int kruskal() {
     fill(nodeRank, nodeRank + n, 0);
     iota(parent, parent + n, 0);
     sort(edges.begin(), edges.end());
-    for(auto &[u, v, w] : edges) {
+    for(auto &[w, u, v] : edges) {
         if(findSet(u) != findSet(v)) {
             ans += w;
             unionSets(u, v);

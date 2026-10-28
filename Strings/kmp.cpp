@@ -1,6 +1,9 @@
 string pat, tex;
 int table[MAX]; // max size of string p;
 
+// m = tamanho da string pat
+// n = tamanho da string tex
+
 void kmpPre() {
     int i = 0, j = -1;
     table[0] = -1;

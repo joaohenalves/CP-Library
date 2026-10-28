@@ -1,4 +1,4 @@
-ll inv[MAX];
+ll inv[MAXB];
 
 void modInverse() {
     inv[0] = inv[1] = 1;
